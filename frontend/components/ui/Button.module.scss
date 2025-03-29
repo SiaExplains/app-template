@@ -1,0 +1,92 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.button {
+  @include flex(row, center, center);
+  border-radius: $radius-md;
+  font-weight: 500;
+  cursor: pointer;
+  @include transition(all);
+  border: 1px solid transparent;
+  gap: $spacing-sm;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+}
+
+// Variants
+.primary {
+  background-color: var(--primary);
+  color: white;
+
+  @include hover-focus {
+    background-color: var(--button-primary-hover);
+  }
+}
+
+.secondary {
+  background-color: var(--secondary);
+  color: var(--primary);
+
+  @include hover-focus {
+    background-color: var(--button-secondary-hover);
+  }
+}
+
+.accent {
+  background-color: var(--accent);
+  color: var(--primary);
+
+  @include hover-focus {
+    background-color: var(--button-accent-hover);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--foreground);
+  border-color: var(--gray-200);
+
+  @include hover-focus {
+    background-color: var(--gray-100);
+    border-color: var(--gray-300);
+  }
+}
+
+// Sizes
+.sm {
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+}
+
+.md {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+}
+
+.lg {
+  padding: $spacing-md $spacing-lg;
+  font-size: $font-size-lg;
+}
+
+// Icons
+.leftIcon, .rightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftIcon {
+  margin-right: $spacing-xs;
+}
+
+.rightIcon {
+  margin-left: $spacing-xs;
+} 

@@ -1,0 +1,123 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.header {
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--primary-hover);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-sm $spacing-md;
+  @include flex(row, space-between, center, $spacing-md);
+}
+
+.left {
+  @include flex(row, flex-start, center, $spacing-sm);
+}
+
+.logo {
+  @include flex(row, flex-start, center, $spacing-sm);
+  text-decoration: none;
+  color: white;
+}
+
+.logoImage {
+  @include transition(transform);
+  
+  @include hover-focus {
+    transform: scale(1.05);
+  }
+}
+
+.title {
+  @include text($font-size-lg, $line-height-tight, 600);
+  @include truncate;
+}
+
+.center {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 $spacing-xl;
+}
+
+.searchForm {
+  @include flex(row, flex-start, center);
+  width: 100%;
+  position: relative;
+}
+
+.searchInput {
+  @include input;
+  border-radius: $radius-full;
+  padding-right: $spacing-xl;
+  background-color: white;
+  border-color: var(--accent);
+  color: var(--foreground);
+  
+  &::placeholder {
+    color: var(--gray-600);
+  }
+  
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 212, 1, 0.2);
+  }
+}
+
+.searchButton {
+  @include position(absolute, 50%, $spacing-md, null, null);
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  padding: 0;
+  @include transition(color);
+  
+  @include hover-focus {
+    color: var(--accent);
+  }
+}
+
+.right {
+  @include flex(row, flex-end, center);
+}
+
+.userLink {
+  color: white;
+  opacity: 0.9;
+  padding: $spacing-sm;
+  border-radius: $radius-full;
+  @include transition(all);
+  
+  @include hover-focus {
+    opacity: 1;
+    background-color: var(--accent);
+    color: var(--primary);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .container {
+    padding: $spacing-sm;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .center {
+    margin: 0 $spacing-md;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .center {
+    display: none;
+  }
+} 
