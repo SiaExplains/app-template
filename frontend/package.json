@@ -1,7 +1,8 @@
 {
-  "name": "app-template",
+  "name": "<<<APP_NAME>>>",
   "version": "0.1.0",
   "private": true,
+  "description": "<<<APP_DESCRIPTION>>>",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
